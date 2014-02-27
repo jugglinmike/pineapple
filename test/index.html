@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tests</title>
+    <script src="vendor/mocha.js"></script>
+    <script src="vendor/mocha-qunit-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/mocha.css">
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="qunit-fixture"></div>
+    <script>
+      mocha.setup({
+        ui: "qunit"
+      });
+    </script>
+<script src="../src/tiny-jquery.js"></script>
+
+ <!-- Test scripts. Uncomment incrementally. -->
+  <script src="tests/shape.js"></script>
+  <!-- <script src="tests/selection.js"></script> -->
+  <!-- <script src="tests/iteration.js"></script> -->
+  <!-- <script src="tests/extra-credit.js"></script> -->
+  <div id="qunit-fixture">test markup</div>
+
+  <div id="prefilled" style="display:none">
+    <span class="test-a"></span>
+    <span class="test-a test-b"></span>
+    <span class="test-b test-c"></span>
+    <div class="test-c"><span><article></article></span></div>
+    <span id="test-id"><span class="test-c"></span></span>
+  </div>
+    <script>
+      // Only tests run in real browser, injected script run if options.run == true
+      if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+        mocha.run();
+      }
+    </script>
+  </body>
+</html>
